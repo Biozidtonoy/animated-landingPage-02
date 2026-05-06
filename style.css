@@ -1,0 +1,137 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary-color : #ffffff;
+    --secondary-color : #F3E4C9;
+    --text-color : #ffffff;
+
+    --space-sm : 8px;
+    --space-md : 16px;
+    --space-lg : 32px;
+
+    --font-main : 'inter', sans-serif;
+
+    --radius-sm : 8px;
+
+    --boxShadow-black : 0 4px 16px rgba(255,255,255,0.15);
+
+    --transition : all 0.3s ease;
+
+}
+
+body{
+    background-image: url(/animated-landingPage-02/image/pexels-craytive-1503009.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.5);
+    background-blend-mode: darken;
+    min-height: 100vh;
+}
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: var(--space-md) var(--space-lg);
+    /* margin: 0 var(--space-lg); */
+    color: var(--text-color);
+}
+.logo{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.logo img{
+    width: 80px;
+    height: auto;
+
+    display: block;
+}
+
+.menu-toggle{
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+
+}
+
+.nav-links{
+    display: flex;
+    padding: var(--space-md) var(--space-lg);
+    gap : 20px;
+    list-style: none;
+}
+.nav-links a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    
+}
+
+
+.search-btn,.cart-btn{
+    color: var(--text-color);
+    font-size: 1.3rem;
+    padding: var(--space-sm);
+    border: none;
+    background: none;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover{
+    padding: var(--space-sm) 0;
+    border-bottom: 2px solid white;
+}
+.search-btn:hover,
+.cart-btn:hover{
+    border-bottom: 2px solid white;
+}
+
+@media (max-width:768px){
+
+    .header-btns{
+        display: flex;
+        gap: 10px;
+    }
+    .menu-toggle{
+        display: block;
+    }
+    nav{
+        position: absolute;
+        top: 80px;
+        left: 0;
+
+        width: 100%;
+        padding: 20px;
+
+        display: none;
+        backdrop-filter: blur(10px);
+    }
+    nav.active{
+        display: block;
+
+    }
+    .nav-links{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+}
+
+@media(max-width : 320px){
+    .logo img{
+        width: 50px;
+    }
+}
