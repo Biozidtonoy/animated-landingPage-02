@@ -42,19 +42,16 @@ body{
     align-items: center;
     height: 80px;
     padding: var(--space-md) var(--space-lg);
-    /* margin: 0 var(--space-lg); */
     color: var(--text-color);
-}
-.logo{
-    font-size: 1.3rem;
-    font-weight: 600;
+    backdrop-filter: blur(3px);
+
 }
 
 .logo img{
     width: 80px;
     height: auto;
-
     display: block;
+    animation: show 0.75s ease-in-out forwards;
 }
 
 .menu-toggle{
@@ -73,11 +70,62 @@ body{
     gap : 20px;
     list-style: none;
 }
+
+.nav-links li{
+    opacity: 0;
+    animation: show 0.75s ease-in-out forwards;
+}
+.nav-links li:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.nav-links li:nth-child(2){
+    animation-delay: 0.4s;
+}
+
+.nav-links li:nth-child(3){
+    animation-delay: 0.6s;
+}
+
+.nav-links li:nth-child(4){
+    animation-delay: 0.8s;
+}
+
+.nav-links li:nth-child(5){
+    animation-delay: 1s;
+}
+
+
 .nav-links a{
     color: var(--text-color);
     text-decoration: none;
     font-size: 1.2rem;
-    
+    cursor: pointer;
+}
+
+.search-btn,
+.cart-btn{
+    opacity: 0;
+    animation: shows 0.75s ease-in-out forwards;
+}
+
+.search-btn{
+    animation-delay: 1.2s;
+}
+
+.cart-btn{
+    animation-delay: 1.4s;
+}
+
+@keyframes shows{
+     from{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -88,6 +136,7 @@ body{
     border: none;
     background: none;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .nav-links a:hover{
@@ -133,5 +182,165 @@ body{
 @media(max-width : 320px){
     .logo img{
         width: 50px;
+    }
+}
+
+@keyframes show{
+    from{
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+}
+
+.hero h1{
+    color: var(--primary-color);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 5rem;
+    
+}
+
+.leftX{
+    display: inline-block;
+    opacity: 0;
+    animation: showLeftX 0.75s linear forwards;
+    animation-delay: 1.6s;
+}
+.rightX{
+    display: inline-block;
+    opacity: 0;
+    animation: showrightX 0.75s linear forwards;
+    animation-delay: 1.8s ;
+}
+
+@keyframes showLeftX{
+    from{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes showrightX{
+    from{
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+.hero h2{
+    color: var(--primary-color);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: showss 0.75s ease-in-out forwards;
+    /* animation-delay: 1.6s; */
+    animation-delay: 2s;
+
+}
+
+
+@media (max-width:425px){
+    .hero{
+        flex-direction: column;
+        align-items: center;
+    }
+    .hero h1{
+        font-size: 3rem;
+    }
+    .hero h2{
+        font-size: 1rem;
+    }
+}
+
+@keyframes showss{
+    from{
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.hero-btns button{
+    margin: var(--space-sm);
+    padding: var(--space-sm)  var(--space-md);
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.6s ease;
+}
+
+.shop,.watch{
+    opacity: 0;
+    animation: shows 0.75s ease-in-out forwards;
+}
+
+.shop{
+    /* animation-delay: 1.8s; */
+    animation-delay: 2.2s;
+}
+.watch{
+    /* animation-delay: 2s; */
+    animation-delay: 2.4s;
+}
+
+.shop:hover,
+.watch:hover{
+    color: white;
+    background: none;
+    border: 2px solid white;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.6) ;
+
+}
+
+.scroll-btn{
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    padding: var(--space-md);
+    font-size: 1.2rem;
+    margin-top: 100px;
+    opacity: 0;
+    animation: scrollDown 1.3s ease infinite;
+    animation-delay: 2.6s;
+    backdrop-filter: blur(4px);
+    border-radius: var(--radius-sm);
+}
+
+@keyframes scrollDown{
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
     }
 }
